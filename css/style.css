@@ -1,0 +1,367 @@
+/* **************************** */
+/* ****** STYLE GENERAUX ****** */
+/* **************************** */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+* {
+  box-sizing: border-box; }
+
+img {
+  max-width: 100%; }
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  margin: 0; }
+
+.container {
+  width: 90%;
+  margin: 0 auto; }
+
+.container-fluid {
+  width: 100%; }
+
+a {
+  text-decoration: none; }
+
+a:hover {
+  text-decoration: underline; }
+
+li {
+  list-style-type: none; }
+
+.align-left {
+  text-align: left; }
+
+.align-center {
+  text-align: center; }
+
+.align-right {
+  text-align: right; }
+
+.required {
+  color: #CC0000; }
+
+button {
+  cursor: pointer; }
+
+/* **************************** */
+/* ******** STYLE FLEX ******** */
+/* **************************** */
+.col-mob {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column; }
+
+.row-mob {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row; }
+
+.row-reverse-mob {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row-reverse; }
+
+.col-reverse-mob {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column-reverse; }
+
+.col-mob-1 {
+  flex-basis: 6.5%; }
+
+.col-mob-2 {
+  flex-basis: 15%; }
+
+.col-mob-3 {
+  flex-basis: 23.5%; }
+
+.col-mob-4 {
+  flex-basis: 32%; }
+
+.col-mob-5 {
+  flex-basis: 40.5%; }
+
+.col-mob-6 {
+  flex-basis: 49%; }
+
+.col-mob-7 {
+  flex-basis: 57.5%; }
+
+.col-mob-8 {
+  flex-basis: 66%; }
+
+.col-mob-9 {
+  flex-basis: 74.5%; }
+
+.col-mob-10 {
+  flex-basis: 40.5%; }
+
+.col-mob-11 {
+  flex-basis: 83%; }
+
+.col-mob-12 {
+  flex-basis: 98%; }
+
+.row-mob > *, .row-reverse-mob > *,
+.col-mob > *, .col-reverse-mob > * {
+  margin: 1%; }
+
+.row-mob > *:first-child,
+.row-reverse-mob > *:last-child {
+  margin-left: 0; }
+
+.row-mob > *:last-child,
+.row-reverse-mob > *:first-child {
+  margin-right: 0; }
+
+@media (min-width: 768px) {
+  .col-tab {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column; }
+
+  .row-tab {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row; }
+
+  .row-reverse-tab {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse; }
+
+  .col-reverse-tab {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column-reverse; }
+
+  .col-tab-1 {
+    flex-basis: 6.5%; }
+
+  .col-tab-2 {
+    flex-basis: 15%; }
+
+  .col-tab-3 {
+    flex-basis: 23.5%; }
+
+  .col-tab-4 {
+    flex-basis: 32%; }
+
+  .col-tab-5 {
+    flex-basis: 40.5%; }
+
+  .col-tab-6 {
+    flex-basis: 49%; }
+
+  .col-tab-7 {
+    flex-basis: 57.5%; }
+
+  .col-tab-8 {
+    flex-basis: 66%; }
+
+  .col-tab-9 {
+    flex-basis: 74.5%; }
+
+  .col-tab-10 {
+    flex-basis: 40.5%; }
+
+  .col-tab-11 {
+    flex-basis: 83%; }
+
+  .col-tab-12 {
+    flex-basis: 98%; }
+
+  .row-tab > *, .row-reverse-tab > *,
+  .col-tab > *, .col-reverse-tab > * {
+    margin: 1%; }
+
+  .row-tab > *:first-child,
+  .row-reverse-tab > *:last-child {
+    margin-left: 0; }
+
+  .row-tab > *:last-child,
+  .row-reverse-tab > *:first-child {
+    margin-right: 0; } }
+@media (min-width: 1024px) {
+  .col-desk {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column; }
+
+  .row-desk {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row; }
+
+  .row-reverse-desk {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse; }
+
+  .col-reverse-desk {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column-reverse; }
+
+  .col-desk-1 {
+    flex-basis: 6.5%; }
+
+  .col-desk-2 {
+    flex-basis: 15%; }
+
+  .col-desk-3 {
+    flex-basis: 23.5%; }
+
+  .col-desk-4 {
+    flex-basis: 32%; }
+
+  .col-desk-5 {
+    flex-basis: 40.5%; }
+
+  .col-desk-6 {
+    flex-basis: 49%; }
+
+  .col-desk-7 {
+    flex-basis: 57.5%; }
+
+  .col-desk-8 {
+    flex-basis: 66%; }
+
+  .col-desk-9 {
+    flex-basis: 74.5%; }
+
+  .col-desk-10 {
+    flex-basis: 40.5%; }
+
+  .col-desk-11 {
+    flex-basis: 83%; }
+
+  .col-desk-12 {
+    flex-basis: 98%; }
+
+  .row-desk > *, .row-reverse-desk > *,
+  .col-desk > *, .col-reverse-desk > * {
+    margin: 1%; }
+
+  .row-desk > *:first-child,
+  .row-reverse-desk > *:last-child {
+    margin-left: 0; }
+
+  .row-desk > *:last-child,
+  .row-reverse-desk > *:first-child {
+    margin-right: 0; } }
+.space-around {
+  justify-content: space-around; }
+
+.space-between {
+  justify-content: space-between; }
+
+.ml0 {
+  margin-left: 0; }
+
+.mr0 {
+  margin-right: 0; }
+
+.hide {
+  display: none; }
+
+.show {
+  display: block; }
+
+/* **************************** */
+/* ******* STYLE HEADER ******* */
+/* **************************** */
+@media all and (min-width: 1024px) {
+  .btnHamburger {
+    display: none; }
+
+  #mainmenu {
+    display: flex; } }
+header nav.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #FFF;
+  border-bottom: 1px solid #000;
+  z-index: 20; }
+
+header nav .btnHamburger {
+  border: 1px solid #000;
+  background-color: #FFF;
+  padding: 10px 15px;
+  border-radius: 6px; }
+
+/* **************************** */
+/* ******** STYLE MAIN ******** */
+/* **************************** */
+.carre {
+  height: 50px; }
+
+.blue {
+  background-color: blue; }
+
+.red {
+  background-color: red; }
+
+.black {
+  background-color: black; }
+
+.yellow {
+  background-color: yellow; }
+
+.green {
+  background-color: green; }
+
+.grey {
+  background-color: grey; }
+
+/* **************************** */
+/* ******* STYLE FOOTER ******* */
+/* **************************** */
+.top {
+  text-align: right;
+  position: fixed;
+  left: 91%;
+  width: 5%;
+  top: 91%; }
+
+/*# sourceMappingURL=style.css.map */
