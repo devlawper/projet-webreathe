@@ -18,19 +18,19 @@
         <ul id="mainmenu" class="row-desk hide">          
           <?php if(is_administrateur()): ?>
           <li class="col-desk-4 align-center"><a class="active" href="index.php">Tableau de bord</a></li>
-          <li class="col-desk-4 align-center"><a class="" href=".php">Liste des gestionnaires</a></li>
-          <li class="col-desk-4 align-center"><a class="" href=".php">Ajouter un gestionnaire</a></li>
+          <li class="col-desk-4 align-center"><a class="" href="liste-gestionnaires.php">Liste des gestionnaires</a></li>
+          <li class="col-desk-4 align-center"><a class="" href="ajout-gestionnaire.php">Ajouter un gestionnaire</a></li>
           <?php endif; ?>
           <?php if(is_gestionnaire()): ?>
           <li class="col-desk-4 align-center"><a class="active" href="index.php">Tableau de bord</a></li>
-          <li class="col-desk-4 align-center"><a class="" href=".php">Liste des véhicules</a>
-          <li class="col-desk-4 align-center"><a class="" href=".php">Ajouter un véhicule</a>
+          <li class="col-desk-4 align-center"><a class="" href="liste-vehicules.php">Liste des véhicules</a>
+          <li class="col-desk-4 align-center"><a class="" href="ajout-vehicule.php">Ajouter un véhicule</a>
           <?php endif; ?>
           <?php if(is_technicien()): ?>
           <li class="col-desk-3 align-center"><a class="active" href="index.php">Tableau de bord</a></li>
-          <li class="col-desk-3 align-center"><a class="" href=".php">Liste des véhicules</a>
-          <li class="col-desk-3 align-center"><a class="" href=".php">Liste des pérations de maintenance</a></li>
-          <li class="col-desk-3 align-center"><a class="" href=".php">Ajouter une opération de maintenance</a></li>
+          <li class="col-desk-3 align-center"><a class="" href="liste-vehicules.php">Liste des véhicules</a>
+          <li class="col-desk-3 align-center"><a class="" href="liste-operations.php">Liste des pérations de maintenance</a></li>
+          <li class="col-desk-3 align-center"><a class="" href="ajout-operation.php">Ajouter une opération de maintenance</a></li>
           <?php endif; ?>
         </ul>
       </nav>

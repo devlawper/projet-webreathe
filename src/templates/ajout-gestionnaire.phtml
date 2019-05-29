@@ -1,0 +1,25 @@
+<section>
+    <form class="formulaire" action="ajout-gestionnaire.php" method="post">
+        <fieldset>
+            <legend>Formulaire d'ajout de gestionnaire</legend>
+
+            <p>
+                <label for="nom">Nom :</label>
+                <input id="nom" name="nom" maxlength="100" type="text" value="<?= $nom ?>" required>
+            </p>
+            <p>
+                <label for="prenom">Prénom :</label>
+                <input id="prenom" name="prenom" maxlength="100" type="text" value="<?= $prenom ?>" required>
+            </p>
+            <p>
+                <label for="email">Email :</label>
+                <input id="email" name="email" maxlength="100" type="email" value="<?= $email ?>" required>
+            </p>
+            <p>
+                <label for="mdp">Mot de passe :</label>
+                <input id="mdp" name="password" maxlength="50" type="password" value="<?= $mdp ?>" required>
+            </p>
+            <button class="btn" type="submit">Ajouter</button>
+        </fieldset>        
+    </form>    
+</section>
