@@ -1,8 +1,13 @@
 <section>
+    <?php if (isset($_GET['id'])):?>
+    <form class="formulaire" action="modif-gestionnaire.php?id=<?= $_GET['id']?>" method="post">
+        <fieldset>
+                <legend>Modification d'un gestionnaire</legend>
+    <?php else: ?>
     <form class="formulaire" action="ajout-gestionnaire.php" method="post">
         <fieldset>
-            <legend>Formulaire d'ajout de gestionnaire</legend>
-
+                <legend>Ajout d'un gestionnaire</legend>
+    <?php endif; ?> 
             <p>
                 <label for="nom">Nom :</label>
                 <input id="nom" name="nom" maxlength="100" type="text" value="<?= $nom ?>" required>
@@ -17,9 +22,13 @@
             </p>
             <p>
                 <label for="mdp">Mot de passe :</label>
-                <input id="mdp" name="password" maxlength="50" type="password" value="<?= $mdp ?>" required>
+                <input id="mdp" name="mdp" maxlength="50" type="password" value="<?= $mdp ?>" required>
             </p>
+            <?php if (isset($_GET['id'])):?>
+            <button class="btn" type="submit">Modifier</button>
+            <?php else: ?>
             <button class="btn" type="submit">Ajouter</button>
+            <?php endif; ?>             
         </fieldset>        
     </form>    
 </section>

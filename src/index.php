@@ -17,7 +17,7 @@ if(isset($_POST['login'])){
         ON gm_roles.id=gm_users.role_id
         WHERE email=?");
 	$query->execute(array($login));
-	$user=$query->fetch();
+    $user=$query->fetch();
 
 	if($user){
 		if(password_verify($_POST['mdp'],$user['mdp'])){
