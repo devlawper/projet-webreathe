@@ -8,33 +8,34 @@ $template='index';
 // Soumission du formulaire de connexion
 if(isset($_POST['login'])){
 
-	$login=htmlspecialchars($_POST['login']);
+    $login=htmlspecialchars($_POST['login']);
 
 	$query=$bdd->prepare(
         "SELECT nom, prenom, email, mdp, role
         FROM gm_users 
         INNER JOIN gm_roles
-        ON gm_role.id=gm_users.role_id
-        WHERE login=?");
+        ON gm_roles.id=gm_users.role_id
+        WHERE email=?");
 	$query->execute(array($login));
 	$user=$query->fetch();
 
 	if($user){
 		if(password_verify($_POST['mdp'],$user['mdp'])){
-			$_SESSION['user']= $user['prenom'].' '.$user['nom'];
-        }
-        elseif($user['role'] == 'administrateur'){
-            $_SESSION['admin'];
-        }
-        elseif($user['role'] == 'gestionnaire'){
-            $_SESSION['gestionnaire'];
-        }
-        elseif($user['role'] == 'technicien'){
-            $_SESSION['technicien'];
-        }
-		else{
+            $nom=$user['prenom'].' '.$user['nom'];
+            $_SESSION['user']=$nom;
+            if($user['role'] == 'administrateur'){
+                $_SESSION['administrateur']=$nom;
+            }
+            if($user['role'] == 'gestionnaire'){
+                $_SESSION['gestionnaire']=$nom;
+            }
+            if($user['role'] == 'technicien'){
+                $_SESSION['technicien']=$nom;
+            }
+        }        
+        else{
 			$message="Mauvais mot de passe";
-		}
+		}        
 	}
 	else{
 		$message="Identifiant inconnnu";

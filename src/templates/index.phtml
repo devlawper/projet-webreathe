@@ -1,6 +1,8 @@
-<?php if(isset($_SESSION['user'])): ?>
+<?php if(is_connect()): ?>
 
 <h1>Tableau de bord</h1>
+<p>Bienvenue <?= $_SESSION['user']?> </p>
+<p><a href="php/deconnect.php">Déconnexion</a></p>
 
 <?php else: ?>
 <h1>Système de gestion de maintenance</h1>

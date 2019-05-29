@@ -22,3 +22,30 @@ function is_connect(){
 		return false;
 	}
 }
+// Validation connexion utilisateur
+function is_administrateur(){
+	if(isset($_SESSION['administrateur'])){
+		return true;
+	}
+	else{
+		return false;
+	}
+}
+// Validation connexion utilisateur
+function is_gestionnaire(){
+	if(isset($_SESSION['gestionnaire'])){
+		return true;
+	}
+	else{
+		return false;
+	}
+}
+// Validation connexion utilisateur
+function is_technicien(){
+	if(isset($_SESSION['technicien'])){
+		return true;
+	}
+	else{
+		return false;
+	}
+}
