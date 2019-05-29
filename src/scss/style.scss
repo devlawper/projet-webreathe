@@ -52,6 +52,9 @@ body {
   font-size: 1rem;
   margin: 0;
 }
+main {
+  padding: 2rem 0;
+}
 .container {
   width: 90%;
   margin: 0 auto;
@@ -296,7 +299,34 @@ header nav .btnHamburger {
 /* ******** STYLE MAIN ******** */
 /* **************************** */
 
+table.table {
+  border-collapse:collapse;
+  font-size:0.9em;
+  text-align: left;
+  margin-bottom: 4em;
+}
+table tbody tr:nth-child(odd) {
+ background-color:#FFE6BE;
+}
 
+th, td {
+  padding:4px 8px;
+  border:1px solid #DD8B0C;
+}
+th {
+ color:#DD8B0C;
+}
+
+.formulaire {
+  fieldset {
+    border: 1px solid #000;
+    border-radius: 4px;
+    padding: 1% 2%;
+  }
+  legend {
+    font-weight: bold;
+  }  
+}
 
 /* **************************** */
 /* ******* STYLE FOOTER ******* */

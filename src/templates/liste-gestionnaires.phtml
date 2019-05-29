@@ -1,31 +1,34 @@
 <?php if(isset($_SESSION['administrateur'])): ?>
   
-  <h1>Liste des gestionnaires</h1>
-  <a href="ajout-gestionnaire.php">Ajouter un gestionnaire</a>
-  <table class="table">
-      <thead>
-        <tr>
-           <th>Id</th>
-           <th>Nom</th>
-           <th>Prénom</th>
-           <th>Email</th>
-           <th></th>
-           <th></th>
-        </tr>
-      </thead>
-      <tbody>       
-        <?php foreach($gestionnaires as $gestionnaire):?>
-         <tr>
-            <td><?= $gestionnaire['id'] ?></td>
-            <td><?= $gestionnaire['nom'] ?></td>
-            <td><?= $gestionnaire['prenom'] ?></td>
-            <td><?= $gestionnaire['email'] ?></td>
-            <td><a href="modif-gestionnaire.php?id=<?=$gestionnaire['id'] ?>">Modifier</a></td>
-            <td><a href="suppr-gestionnaire.php?id=<?=$gestionnaire['id'] ?>">Supprimer</a></td>
-          </tr>
-        <?php endforeach; ?>        
-        </tbody>
-    </table>
+<section class="container">
+    <h1>Liste des gestionnaires</h1>
+    <a href="ajout-gestionnaire.php">Ajouter un gestionnaire</a>
+    <table class="table">
+        <thead>
+            <tr>
+            <th>Id</th>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Email</th>
+            <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>       
+            <?php foreach($gestionnaires as $gestionnaire):?>
+            <tr>
+                <td><?= $gestionnaire['id'] ?></td>
+                <td><?= $gestionnaire['nom'] ?></td>
+                <td><?= $gestionnaire['prenom'] ?></td>
+                <td><?= $gestionnaire['email'] ?></td>
+                <td>
+                    <a href="modif-gestionnaire.php?id=<?=$gestionnaire['id'] ?>">Modifier</a> - 
+                    <a href="suppr-gestionnaire.php?id=<?=$gestionnaire['id'] ?>">Supprimer</a>
+                </td>
+            </tr>
+            <?php endforeach; ?>        
+            </tbody>
+        </table>
+</section>
   
 
   <?php else: header('location:index.php'); endif; ?>

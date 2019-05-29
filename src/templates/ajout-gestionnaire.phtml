@@ -1,4 +1,4 @@
-<section>
+<section class="container">
     <?php if (isset($_GET['id'])):?>
     <form class="formulaire" action="modif-gestionnaire.php?id=<?= $_GET['id']?>" method="post">
         <fieldset>
@@ -8,21 +8,21 @@
         <fieldset>
                 <legend>Ajout d'un gestionnaire</legend>
     <?php endif; ?> 
-            <p>
-                <label for="nom">Nom :</label>
-                <input id="nom" name="nom" maxlength="100" type="text" value="<?= $nom ?>" required>
+            <p class="row-desk">
+                <label class="col-desk-2" for="nom">Nom :</label>
+                <input class="col-desk-10" id="nom" name="nom" maxlength="100" type="text" value="<?= $nom ?>" required>
             </p>
-            <p>
-                <label for="prenom">Prénom :</label>
-                <input id="prenom" name="prenom" maxlength="100" type="text" value="<?= $prenom ?>" required>
+            <p class="row-desk">
+                <label class="col-desk-2" for="prenom">Prénom :</label>
+                <input class="col-desk-10" id="prenom" name="prenom" maxlength="100" type="text" value="<?= $prenom ?>" required>
             </p>
-            <p>
-                <label for="email">Email :</label>
-                <input id="email" name="email" maxlength="100" type="email" value="<?= $email ?>" required>
+            <p class="row-desk">
+                <label class="col-desk-2" for="email">Email :</label>
+                <input class="col-desk-10" id="email" name="email" maxlength="100" type="email" value="<?= $email ?>" required>
             </p>
-            <p>
-                <label for="mdp">Mot de passe :</label>
-                <input id="mdp" name="mdp" maxlength="50" type="password" value="<?= $mdp ?>" required>
+            <p class="row-desk">
+                <label class="col-desk-2" for="mdp">Mot de passe :</label>
+                <input class="col-desk-10" id="mdp" name="mdp" maxlength="50" type="password" value="<?= $mdp ?>" required>
             </p>
             <?php if (isset($_GET['id'])):?>
             <button class="btn" type="submit">Modifier</button>
