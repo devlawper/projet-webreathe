@@ -1,0 +1,51 @@
+<?php
+// Si l'utilisateur n'est pas 'gestionnaire' on le renvoie au tableau de bord
+if(!is_gestionnaire()){
+	header('location:index.php');
+}
+?>
+
+<section class="container">
+    <?php if (isset($_GET['id'])):?>
+<!-- Affichage du formulaire pour l'ajout ou la modif d'un VEHICULE -->
+<!-- Modif d'un VEHICULE -->
+    <form class="formulaire" action="modif-vehicule.php?id=<?= $_GET['id']?>" method="post">
+        <fieldset>
+                <legend>Modification d'un véhicule</legend>
+<!-- Ajout d'un VEHICULE -->
+    <?php else: ?>
+    <form class="formulaire" action="ajout-vehicule.php" method="post">
+        <fieldset>
+                <legend>Ajout d'un véhicule</legend>
+    <?php endif; ?> 
+
+<!-- Formulaire d'ajout de véhicule -->     
+            <p class="row-desk">
+                <label class="col-desk-2" for="type">Type :</label>
+                <select class="col-desk-10" name="type" id="type" required>
+                    <option value="">-- Choisir un type --</option>
+                    <option value="vp">Véhicule particulier</option>
+                    <option value="vu">Véhicule utilitaire</option>
+                    <option value="autre">Autre</option>
+                </select>
+            </p>
+            <p class="row-desk">
+                <label class="col-desk-2" for="marque">Marque :</label>
+                <input class="col-desk-10" id="marque" name="marque" maxlength="100" type="text" value="<?= $marque ?>" required>
+            </p>
+            <p class="row-desk">
+                <label class="col-desk-2" for="modele">Modèle :</label>
+                <input class="col-desk-10" id="modele" name="modele" maxlength="100" type="text" value="<?= $modele ?>" required>
+            </p>
+            <p class="row-desk">
+                <label class="col-desk-2" for="date_achat">Date d'achat :</label>
+                <input class="col-desk-10" id="date_achat" name="date_achat" maxlength="50" type="date" value="<?= $date_achat ?>" required>
+            </p>
+            <?php if (isset($_GET['id'])):?>
+            <button class="btn" type="submit">Modifier</button>
+            <?php else: ?>
+            <button class="btn" type="submit">Ajouter</button>
+            <?php endif; ?>             
+        </fieldset>        
+    </form>    
+</section>
