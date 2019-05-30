@@ -10,20 +10,20 @@ if(!isset($_SESSION['administrateur'])){
 $bdd=connectBdd();
 
 $title='Base - Index';
-$template='ajout-gestionnaire';
+$template='ajout-user';
 
-// On récupère les infos du gestionnaire concerné en base de donnée
+// On récupère les infos de la personne concerné en base de donnée
 $query=$bdd->prepare(
     'SELECT nom,prenom,email
     FROM gm_users
     WHERE id=?');
 $query->execute(array($_GET['id']));
-$gestionnaire=$query->fetch();
+$user=$query->fetch();
 
 // On initialise les valeurs des formulaires avec les données que l'ont a déjà sauf le mdp
-$nom=$gestionnaire['nom'];
-$prenom=$gestionnaire['prenom'];
-$email=$gestionnaire['email'];
+$nom=$user['nom'];
+$prenom=$user['prenom'];
+$email=$user['email'];
 $mdp='';
 
 if (isset($_POST['nom'])) {
@@ -38,7 +38,13 @@ if (isset($_POST['nom'])) {
         WHERE id=?");
     $query->execute(array($nom,$prenom,$email,$mdp,$_GET['id']));
     
-    header('location:liste-gestionnaires.php');
+    if ($_GET['role']=='gestionnaire') {
+        header('location:liste-user.php?role=gestionnaire');
+    }
+    elseif ($_GET['role']=='technicien') {
+        header('location:liste-user.php?role=technicien');
+    }
+    
 }
 
 

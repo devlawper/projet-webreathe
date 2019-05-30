@@ -1,0 +1,61 @@
+<?php
+// Si l'utilisation n'est pas 'administrateur' on le renvoie au tableau de bord
+if(!isset($_SESSION['administrateur'])){
+	header('location:index.php');
+}
+?>
+
+<section class="container">
+
+<!-- Affichage du formulaire pour l'ajout ou la modif d'un GESTIONNAIRE -->
+<!-- Modification d'un GESTIONNAIRE -->
+    <?php if ($_GET['role']=='gestionnaire'):?>
+        <?php if (isset($_GET['id'])):?>
+        <form class="formulaire" action="modif-user.php?id=<?= $_GET['id']?>&amp;role=gestionnaire" method="post">
+            <fieldset>
+                    <legend>Modification d'un gestionnaire</legend>
+<!-- Ajout d'un GESTIONNAIRE -->
+        <?php else: ?>
+        <form class="formulaire" action="ajout-user.php?role=gestionnaire" method="post">
+            <fieldset>
+                    <legend>Ajout d'un gestionnaire</legend>
+        <?php endif; ?> 
+
+<!-- Affichage du formulaire pour l'ajout ou la modif d'un TECHNICIEN -->
+<!-- Modification d'un TECHNICIEN -->
+    <?php elseif ($_GET['role']=='technicien'):?>
+        <?php if (isset($_GET['id'])):?>
+        <form class="formulaire" action="modif-user.php?id=<?= $_GET['id']?>&amp;role=technicien" method="post">
+            <fieldset>
+                    <legend>Modification d'un technicien</legend>
+<!-- Ajout d'un TECHNICIEN -->
+        <?php else: ?>
+        <form class="formulaire" action="ajout-user.php?role=technicien" method="post">
+            <fieldset>
+                    <legend>Ajout d'un technicien</legend>
+        <?php endif; ?>
+    <?php endif; ?>
+            <p class="row-desk">
+                <label class="col-desk-2" for="nom">Nom :</label>
+                <input class="col-desk-10" id="nom" name="nom" maxlength="100" type="text" value="<?= $nom ?>" required>
+            </p>
+            <p class="row-desk">
+                <label class="col-desk-2" for="prenom">Prénom :</label>
+                <input class="col-desk-10" id="prenom" name="prenom" maxlength="100" type="text" value="<?= $prenom ?>" required>
+            </p>
+            <p class="row-desk">
+                <label class="col-desk-2" for="email">Email :</label>
+                <input class="col-desk-10" id="email" name="email" maxlength="100" type="email" value="<?= $email ?>" required>
+            </p>
+            <p class="row-desk">
+                <label class="col-desk-2" for="mdp">Mot de passe :</label>
+                <input class="col-desk-10" id="mdp" name="mdp" maxlength="50" type="password" value="<?= $mdp ?>" required>
+            </p>
+            <?php if (isset($_GET['id'])):?>
+            <button class="btn" type="submit">Modifier</button>
+            <?php else: ?>
+            <button class="btn" type="submit">Ajouter</button>
+            <?php endif; ?>             
+        </fieldset>        
+    </form>    
+</section>

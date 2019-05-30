@@ -18,8 +18,8 @@
         <ul id="mainmenu" class="row-desk hide">          
           <?php if(is_administrateur()): ?>
           <li class="col-desk-4 align-center"><a class="active" href="index.php">Tableau de bord</a></li>
-          <li class="col-desk-4 align-center"><a class="" href="liste-gestionnaires.php">Liste des gestionnaires</a></li>
-          <li class="col-desk-4 align-center"><a class="" href="ajout-gestionnaire.php">Ajouter un gestionnaire</a></li>
+          <li class="col-desk-4 align-center"><a class="" href="liste-user.php?role=gestionnaire">Liste des gestionnaires</a></li>
+          <li class="col-desk-4 align-center"><a class="" href="liste-user.php?role=technicien">Liste des techniciens</a></li>
           <?php endif; ?>
           <?php if(is_gestionnaire()): ?>
           <li class="col-desk-4 align-center"><a class="active" href="index.php">Tableau de bord</a></li>
