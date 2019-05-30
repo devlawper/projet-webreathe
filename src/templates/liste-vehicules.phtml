@@ -6,29 +6,23 @@ if(!is_gestionnaire()){
 ?>
 
 
-<!-- Sinon on affiche le tableau des gestionnaire ou des technicien en fonction du lien cliqué -->
+<!-- Sinon on affiche le tableau des véhicules -->
 <section class="container">
-    <h1>Liste des gestionnaires</h1>
+    <h1>Liste des véhicules</h1>
     <a href="ajout-vehicule.php">Ajouter un véhicule</a>
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Type</th>
                 <th>Marque</th>
                 <th>Modèles</th>
-                <th>Date d'achat</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
             <?php foreach($vehicules as $vehicule):?>
             <tr class="<?= $vehicule['id'] ?>">
-                <td><?= $vehicule['id'] ?></td>
-                <td><?= $vehicule['type'] ?></td>
                 <td><?= $vehicule['marque'] ?></td>
                 <td><?= $vehicule['modele'] ?></td>                
-                <td><?= strftime("%d %h %Y", strtotime($vehicule['date_achat']));?></td>
                 <td>
                     <a href="modif-vehicule.php?id=<?=$vehicule['id'] ?>">Modifier</a> - 
                     <span class="supprVehicule" data-id="<?= $vehicule['id'] ?>">Supprimer</span> - 

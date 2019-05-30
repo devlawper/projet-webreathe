@@ -9,12 +9,15 @@ if(!is_gestionnaire()){
 $bdd=connectBdd();
 
 $title='Base - Index';
-$template='liste-vehicules';
+$template='detail-vehicule';
 
 $query=$bdd->prepare(
-    'SELECT id,marque,modele
-    FROM gm_vehicules');
-$query->execute();
-$vehicules=$query->fetchAll();
+    'SELECT *
+    FROM gm_vehicules
+    WHERE id=?');
+$query->execute(array($_GET['id']));
+$vehicule=$query->fetch();
+
+setlocale(LC_ALL, 'fr_FR.UTF8', 'fr_FR','fr','fr','fra','fr_FR@euro');
 
 include 'layout.phtml';

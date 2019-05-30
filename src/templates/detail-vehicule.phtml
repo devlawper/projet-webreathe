@@ -1,0 +1,40 @@
+<!-- Si l'utilisateur n'est pas 'gestionnaire' on le renvoie au tableau de bord -->
+<?php
+if(!is_gestionnaire()){
+	header('location:index.php');
+}
+?>
+
+<!-- Sinon on affiche le détail du véhicule -->
+<section class="container">
+    <h1>Détail du véhicule </h1>
+    <table class="table">
+        <tr>
+            <th>Id</th>
+            <td><?= $vehicule['id'] ?></td>
+        </tr>
+        <tr>
+            <th>Type</th>
+            <td><?= $vehicule['type'] ?></td>
+        </tr>
+        <tr>
+            <th>Marque</th>
+            <td><?= $vehicule['marque'] ?></td>
+        </tr>
+        <tr>
+            <th>Modèles</th>
+            <td><?= $vehicule['modele'] ?></td>
+        </tr>
+        <tr>
+            <th>Date d'achat</th>
+            <td><?= strftime("%d %h %Y", strtotime($vehicule['date_achat']));?></td>
+        </tr>
+        <tr>
+            <th>Actions</th>
+            <td>
+                <a href="modif-vehicule.php?id=<?=$vehicule['id'] ?>">Modifier</a> - 
+                <span class="supprVehicule" data-id="<?= $vehicule['id'] ?>">Supprimer</span>
+            </td>
+        </tr>
+    </table>
+</section>
