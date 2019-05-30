@@ -19,6 +19,7 @@ if(isset($_POST['login'])){
 	$query->execute(array($login));
     $user=$query->fetch();
 
+// Ouverture d'une session user pour chaque connexion et une session spécifique en fonction du role du user
 	if($user){
 		if(password_verify($_POST['mdp'],$user['mdp'])){
             $nom=$user['prenom'].' '.$user['nom'];

@@ -1,8 +1,8 @@
 <?php
 require 'config/functions.php';
 
-// Si l'utilisation n'est pas 'administrateur' on le renvoie au tableau de bord
-if(!isset($_SESSION['administrateur'])){
+// Si l'utilisateur n'est pas 'administrateur' on le renvoie au tableau de bord
+if(!is_administrateur()){
 	header('location:index.php');
 }
 
@@ -12,7 +12,7 @@ $bdd=connectBdd();
 $title='Base - Index';
 $template='ajout-user';
 
-// On récupère les infos de la personne concerné en base de donnée
+// On récupère les infos de la personne concernée en base de donnée
 $query=$bdd->prepare(
     'SELECT nom,prenom,email
     FROM gm_users
@@ -20,12 +20,13 @@ $query=$bdd->prepare(
 $query->execute(array($_GET['id']));
 $user=$query->fetch();
 
-// On initialise les valeurs des formulaires avec les données que l'ont a déjà sauf le mdp
+// On initialise les valeurs des formulaires avec les données que l'on a déjà sauf le mdp
 $nom=$user['nom'];
 $prenom=$user['prenom'];
 $email=$user['email'];
 $mdp='';
 
+// Après soumission du formulaire on met à jour les données et redirige vers la liste des gestionnaires ou des techniciens en fonction de la modif
 if (isset($_POST['nom'])) {
     $nom=htmlspecialchars($_POST['nom']);
     $prenom=htmlspecialchars($_POST['prenom']);

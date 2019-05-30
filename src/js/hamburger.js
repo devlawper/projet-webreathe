@@ -27,7 +27,7 @@ function dropup_deeper() {
 $(function(){  
   // Installation d'un gestionnaire d'évènement clic sur le bouton.
   button.on('click', dropdown_menu);
-  // Installation d'un gestionnaire d'évènement clic au hover.
+  // Installation d'un gestionnaire d'évènement hover.
   deeper.on('mouseenter', dropdown_deeper);
   deeper.on('mouseleave', dropup_deeper);
 })

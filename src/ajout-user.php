@@ -1,8 +1,8 @@
 <?php
 require 'config/functions.php';
 
-// Si l'utilisation n'est pas 'administrateur' on le renvoie au tableau de bord
-if(!isset($_SESSION['administrateur'])){
+// Si l'utilisateur n'est pas 'administrateur' on le renvoie au tableau de bord
+if(!is_administrateur()){
 	header('location:index.php');
 }
 
@@ -18,13 +18,15 @@ $prenom='';
 $email='';
 $mdp='';
 
-if ($_GET['role']=='gestionnaire') {
-    if (isset($_POST['nom'])) {
-        $nom=htmlspecialchars($_POST['nom']);
-        $prenom=htmlspecialchars($_POST['prenom']);
-        $email=htmlspecialchars($_POST['email']);
-        $mdp=password_hash(htmlspecialchars($_POST['mdp']),PASSWORD_DEFAULT);
-    
+// On récupère les valeurs des champs après soumission du formulaire
+if (isset($_POST['nom'])) {   
+    $nom=htmlspecialchars($_POST['nom']);
+    $prenom=htmlspecialchars($_POST['prenom']);
+    $email=htmlspecialchars($_POST['email']);
+    $mdp=password_hash(htmlspecialchars($_POST['mdp']),PASSWORD_DEFAULT);
+
+// Requète et redirection si on agit sur un gestionnaire
+    if ($_GET['role']=='gestionnaire') {  
         $query=$bdd->prepare(
             "INSERT INTO gm_users(nom,prenom,email,mdp,role_id)
             VALUES(?,?,?,?,2)");
@@ -32,14 +34,9 @@ if ($_GET['role']=='gestionnaire') {
     
         header('location:liste-user.php?role=gestionnaire');
     }
-}
-elseif ($_GET['role']=='technicien') {
-    if (isset($_POST['nom'])) {
-        $nom=htmlspecialchars($_POST['nom']);
-        $prenom=htmlspecialchars($_POST['prenom']);
-        $email=htmlspecialchars($_POST['email']);
-        $mdp=password_hash(htmlspecialchars($_POST['mdp']),PASSWORD_DEFAULT);
     
+// Requète et redirection si on agit sur un technicien
+    elseif ($_GET['role']=='technicien') {        
         $query=$bdd->prepare(
             "INSERT INTO gm_users(nom,prenom,email,mdp,role_id)
             VALUES(?,?,?,?,3)");
@@ -48,7 +45,5 @@ elseif ($_GET['role']=='technicien') {
         header('location:liste-user.php?role=technicien');
     }
 }
-
-
 
 include 'layout.phtml';

@@ -1,4 +1,6 @@
 <?php
+
+// Fichier de création de l'administrateur
 $nom='PICHON';
 $prenom='Laurent';
 $email='contact@devlawper.com';

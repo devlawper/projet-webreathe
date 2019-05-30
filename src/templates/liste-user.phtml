@@ -1,10 +1,11 @@
+<!-- Si l'utilisateur n'est pas 'administrateur' on le renvoie au tableau de bord -->
 <?php
-// Si l'utilisation n'est pas 'administrateur' on le renvoie au tableau de bord
-if(!isset($_SESSION['administrateur'])){
+if(!is_administrateur()){
 	header('location:index.php');
 }
 ?>
-  
+
+<!-- Sinon on affiche le tableau des gestionnaire ou des technicien en fonction du lien cliqué -->
 <section class="container">
     <?php if ($_GET['role']=='gestionnaire'):?>
     <h1>Liste des gestionnaires</h1>
@@ -26,27 +27,27 @@ if(!isset($_SESSION['administrateur'])){
         <tbody>
             <?php if ($_GET['role']=='gestionnaire'):?>
             <?php foreach($gestionnaires as $gestionnaire):?>
-            <tr>
+            <tr class="<?= $gestionnaire['id'] ?>">
                 <td><?= $gestionnaire['id'] ?></td>
                 <td><?= $gestionnaire['nom'] ?></td>
                 <td><?= $gestionnaire['prenom'] ?></td>
                 <td><?= $gestionnaire['email'] ?></td>
                 <td>
                     <a href="modif-user.php?id=<?=$gestionnaire['id'] ?>&amp;role=gestionnaire">Modifier</a> - 
-                    <a href="suppr-user.php?id=<?=$gestionnaire['id'] ?>&amp;role=gestionnaire">Supprimer</a>
+                    <span class="supprUser" data-id="<?= $gestionnaire['id'] ?>">Supprimer</span>
                 </td>
             </tr>
             <?php endforeach; ?>
             <?php elseif ($_GET['role']=='technicien'):?> 
             <?php foreach($techniciens as $technicien):?>
-            <tr>
+            <tr class="<?= $technicien['id'] ?>">
                 <td><?= $technicien['id'] ?></td>
                 <td><?= $technicien['nom'] ?></td>
                 <td><?= $technicien['prenom'] ?></td>
                 <td><?= $technicien['email'] ?></td>
                 <td>
                     <a href="modif-user.php?id=<?=$technicien['id'] ?>&amp;role=technicien">Modifier</a> - 
-                    <a href="suppr-user.php?id=<?=$technicien['id'] ?>&amp;role=technicien">Supprimer</a>
+                    <span class="supprUser" data-id="<?= $technicien['id'] ?>">Supprimer</span>
                 </td>
             </tr>
             <?php endforeach; ?>

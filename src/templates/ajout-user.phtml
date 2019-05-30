@@ -1,6 +1,6 @@
 <?php
-// Si l'utilisation n'est pas 'administrateur' on le renvoie au tableau de bord
-if(!isset($_SESSION['administrateur'])){
+// Si l'utilisateur n'est pas 'administrateur' on le renvoie au tableau de bord
+if(!is_administrateur()){
 	header('location:index.php');
 }
 ?>
@@ -35,6 +35,8 @@ if(!isset($_SESSION['administrateur'])){
                     <legend>Ajout d'un technicien</legend>
         <?php endif; ?>
     <?php endif; ?>
+    
+<!-- Formulaire d'ajout d'utilisateur -->  
             <p class="row-desk">
                 <label class="col-desk-2" for="nom">Nom :</label>
                 <input class="col-desk-10" id="nom" name="nom" maxlength="100" type="text" value="<?= $nom ?>" required>
