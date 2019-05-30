@@ -1,0 +1,41 @@
+<!-- Si l'utilisateur n'est pas 'gestionnaire' on le renvoie au tableau de bord -->
+<?php
+if(!is_gestionnaire()){
+	header('location:index.php');
+}
+?>
+
+
+<!-- Sinon on affiche le tableau des gestionnaire ou des technicien en fonction du lien cliqué -->
+<section class="container">
+    <h1>Liste des gestionnaires</h1>
+    <a href="ajout-vehicule.php">Ajouter un véhicule</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Type</th>
+                <th>Marque</th>
+                <th>Modèles</th>
+                <th>Date d'achat</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach($vehicules as $vehicule):?>
+            <tr class="<?= $vehicule['id'] ?>">
+                <td><?= $vehicule['id'] ?></td>
+                <td><?= $vehicule['type'] ?></td>
+                <td><?= $vehicule['marque'] ?></td>
+                <td><?= $vehicule['modele'] ?></td>                
+                <td><?= strftime("%d %h %Y", strtotime($vehicule['date_achat']));?></td>
+                <td>
+                    <a href="modif-vehicule.php?id=<?=$vehicule['id'] ?>">Modifier</a> - 
+                    <span class="supprVehicule" data-id="<?= $vehicule['id'] ?>">Supprimer</span> - 
+                    <a href="detail-vehicule.php?id=<?=$vehicule['id'] ?>">Détail</a>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</section>
