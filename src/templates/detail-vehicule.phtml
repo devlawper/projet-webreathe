@@ -29,14 +29,32 @@ if(!is_gestionnaire() && !is_technicien()){
             <th>Date d'achat</th>
             <td><?= strftime("%d %h %Y", strtotime($vehicule['date_achat']));?></td>
         </tr>
-        <?php if(is_gestionnaire()):?>
         <tr>
-            <th>Actions</th>
+            <th>Problème</th>
+            <td class="pb<?=$vehicule['id'] ?>">
+                    <?php if($vehicule['probleme']==''):?>
+                    Pas de problème
+                    <?php else: ?>
+                    <?= $vehicule['probleme'] ?>
+                    <?php endif ?>
+            </td>
+        </tr>
+        <?php if(is_gestionnaire()):?>       
+        <tr>
+            <th>Actions</th>            
             <td>                
                 <a href="modif-vehicule.php?id=<?=$vehicule['id'] ?>">Modifier</a> - 
                 <span class="supprVehicule" data-id="<?= $vehicule['id'] ?>">Supprimer</span>                
             </td>
         </tr>
         <?php endif ?>
+        <?php if(is_technicien() && $vehicule['probleme']!=''):?>
+        <tr class="actionPb">
+            <th>Actions</th> 
+            <td>
+                <span class="pbResolu" data-id="<?= $vehicule['id'] ?>">Problème résolu ?</span>
+            </td>
+        </tr>
+        <?php endif ?>        
     </table>
 </section>

@@ -12,7 +12,7 @@ $title='Base - Index';
 $template='liste-vehicules';
 
 $query=$bdd->prepare(
-    'SELECT id,marque,modele
+    'SELECT id,marque,modele,probleme
     FROM gm_vehicules');
 $query->execute();
 $vehicules=$query->fetchAll();

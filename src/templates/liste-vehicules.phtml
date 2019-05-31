@@ -15,20 +15,31 @@ if(!is_gestionnaire() && !is_technicien()){
             <tr>
                 <th>Marque</th>
                 <th>Modèle</th>
+                <th>Problème</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
             <?php foreach($vehicules as $vehicule):?>
-            <tr class="<?= $vehicule['id'] ?>">
+            <tr>
                 <td><?= $vehicule['marque'] ?></td>
-                <td><?= $vehicule['modele'] ?></td>                
+                <td><?= $vehicule['modele'] ?></td>
+                <td class="pb<?=$vehicule['id'] ?>">
+                    <?php if($vehicule['probleme']==''):?>
+                    Pas de problème
+                    <?php else: ?>
+                    <?= $vehicule['probleme'] ?>
+                    <?php endif ?>
+                </td>
                 <td>
                     <?php if(is_gestionnaire()):?>
-                    <a href="modif-vehicule.php?id=<?=$vehicule['id'] ?>">Modifier</a> - 
-                    <span class="supprVehicule" data-id="<?= $vehicule['id'] ?>">Supprimer</span> - 
+                    <a href="modif-vehicule.php?id=<?=$vehicule['id'] ?>">Modifier - </a>
+                    <span class="supprVehicule" data-id="<?= $vehicule['id'] ?>">Supprimer - </span>
                     <?php endif ?>
                     <a href="detail-vehicule.php?id=<?=$vehicule['id'] ?>">Détail</a>
+                    <?php if(is_technicien()):?>
+                    <span class="ajoutPb" data-id="<?= $vehicule['id'] ?>"> - Signaler un problème</span>
+                    <?php endif ?>
                 </td>
             </tr>
             <?php endforeach; ?>
