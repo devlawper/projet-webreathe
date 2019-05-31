@@ -1,0 +1,58 @@
+<?php
+// Si l'utilisateur n'est pas 'technicien' on le renvoie au tableau de bord
+if(!is_technicien()){
+	header('location:index.php');
+}
+?>
+
+<section class="container">
+    <?php if (isset($_GET['id'])):?>
+<!-- Affichage du formulaire pour l'ajout ou la modif d'un OPERATION DE MAINTENANCE -->
+<!-- Modif d'un OPERATION DE MAINTENANCE -->
+    <form class="formulaire" action="modif-operation.php?id=<?= $_GET['id']?>" method="post">
+        <fieldset>
+                <legend>Modification d'une opération de maintenance sur le véhicule : <?=$marque.' '.$modele?></legend>
+<!-- Ajout d'un OPERATION DE MAINTENANCE -->
+    <?php else: ?>
+    <form class="formulaire" action="ajout-operation.php" method="post">
+        <fieldset>
+                <legend>Ajout d'une opération de maintenance</legend>
+    <?php endif; ?> 
+
+<!-- Formulaire d'ajout d'opération -->
+            <?php if (!isset($_GET['id'])):?>
+            <p class="row-desk">
+                <label class="col-desk-2" for="vehicule">Véhicule :</label>
+                <select class="col-desk-10" name="vehicule" id="vehicule" required>
+                    <option value="">-- Choisir un véhicule --</option>
+                    <?php foreach ($vehicules as $vehicule): ?>
+                    <option value="<?=$vehicule['id']?>"><?=$vehicule['marque'].' '.$vehicule['modele'] ?></option>
+                    <?php endforeach ?>
+                </select>
+            </p>
+            <?php endif; ?>
+            <p class="row-desk">
+                <label class="col-desk-2" for="date_debut">Date de début :</label>
+                <input class="col-desk-10" id="date_debut" name="date_debut" type="date" value="<?= $date_debut ?>" required>
+            </p>
+            <p class="row-desk">
+                <label class="col-desk-2" for="date_fin">Date de fin :</label>
+                <input class="col-desk-10" id="date_fin" name="date_fin" type="date" value="<?= $date_fin ?>" required>
+            </p>
+            <p class="row-desk">
+                <label class="col-desk-2" for="sujet">Sujet :</label>
+                <input class="col-desk-10" id="sujet" name="sujet" maxlength="100" type="text" value="<?= $sujet ?>" required>
+            </p>
+            <p class="row-desk">
+                <label class="col-desk-2" for="description">Description :</label>
+                <textarea name="description" id="description" cols="50" rows="7"><?= $description?></textarea>
+            </p>
+            
+            <?php if (isset($_GET['id'])):?>
+            <button class="btn" type="submit">Modifier</button>
+            <?php else: ?>
+            <button class="btn" type="submit">Ajouter</button>
+            <?php endif; ?>             
+        </fieldset>        
+    </form>    
+</section>

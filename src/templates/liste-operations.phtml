@@ -1,0 +1,36 @@
+<!-- Si l'utilisateur n'est pas 'gestionnaire' on le renvoie au tableau de bord -->
+<?php
+if(!is_technicien()){
+	header('location:index.php');
+}
+?>
+
+
+<!-- Sinon on affiche le tableau des opérations -->
+<section class="container">
+    <h1>Liste des opérations</h1>
+    <a href="ajout-operation.php">Ajouter une opération</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Sujet</th>
+                <th>Marque</th>
+                <th>Modèle</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach($operations as $operation):?>
+            <tr class="<?= $operation['id'] ?>">
+                <td><?= $operation['sujet'] ?></td>
+                <td><?= $operation['marque'] ?></td>
+                <td><?= $operation['modele'] ?></td>                
+                <td>
+                    <a href="modif-operation.php?id=<?=$operation['id'] ?>">Modifier</a> - 
+                    <a href="detail-operation.php?id=<?=$operation['id'] ?>">Détail</a>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</section>

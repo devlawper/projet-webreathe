@@ -12,7 +12,7 @@ $bdd=connectBdd();
 $title='Base - Index';
 $template='ajout-vehicule';
 
-// On récupère les infos de la personne concernée en base de donnée
+// On récupère les infos du véhicule concernée en base de donnée
 $query=$bdd->prepare(
     'SELECT type,marque,modele,date_achat
     FROM gm_vehicules
@@ -20,13 +20,13 @@ $query=$bdd->prepare(
 $query->execute(array($_GET['id']));
 $vehicule=$query->fetch();
 
-// On initialise les valeurs des formulaires avec les données que l'on a déjà sauf le mdp
+// On initialise les valeurs des formulaires avec les données que l'on a déjà
 $type=$vehicule['type'];
 $marque=$vehicule['marque'];
 $modele=$vehicule['modele'];
 $date_achat=$vehicule['date_achat'];
 
-// Après soumission du formulaire on met à jour les données et redirige vers la liste des gestionnaires ou des techniciens en fonction de la modif
+// Après soumission du formulaire on met à jour les données et redirige vers la liste des véhicules
 if (isset($_POST['type'])) {
     $type=htmlspecialchars($_POST['type']);
     $marque=htmlspecialchars($_POST['marque']);

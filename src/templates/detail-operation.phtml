@@ -1,0 +1,47 @@
+<!-- Si l'utilisateur n'est pas 'technicien' on le renvoie au tableau de bord -->
+<?php
+if(!is_technicien()){
+	header('location:index.php');
+}
+?>
+
+<!-- Sinon on affiche le détail du véhicule -->
+<section class="container">
+    <h1>Détail de l'opération</h1>
+    <table class="table">
+        <tr>
+            <th>Id</th>
+            <td><?= $operation['id'] ?></td>
+        </tr>
+        <tr>
+            <th>Marque</th>
+            <td><?= $operation['marque'] ?></td>
+        </tr>
+        <tr>
+            <th>Modèles</th>
+            <td><?= $operation['modele'] ?></td>
+        </tr>
+        <tr>
+            <th>Sujet</th>
+            <td><?= $operation['sujet'] ?></td>
+        </tr>
+        <tr>
+            <th>Date de début</th>
+            <td><?= strftime("%d %h %Y", strtotime($operation['date_debut']));?></td>
+        </tr>
+        <tr>
+            <th>Date de fin</th>
+            <td><?= strftime("%d %h %Y", strtotime($operation['date_fin']));?></td>
+        </tr>
+        <tr>
+            <th>Description</th>
+            <td><?= $operation['description'] ?></td>
+        </tr>
+        <tr>
+            <th>Actions</th>
+            <td>                
+                <a href="modif-operation.php?id=<?=$operation['id'] ?>">Modifier</a>               
+            </td>
+        </tr>
+    </table>
+</section>
