@@ -1,6 +1,6 @@
 <!-- Si l'utilisateur n'est pas 'gestionnaire' on le renvoie au tableau de bord -->
 <?php
-if(!is_gestionnaire()){
+if(!is_gestionnaire() && !is_technicien()){
 	header('location:index.php');
 }
 ?>
@@ -24,8 +24,10 @@ if(!is_gestionnaire()){
                 <td><?= $vehicule['marque'] ?></td>
                 <td><?= $vehicule['modele'] ?></td>                
                 <td>
+                    <?php if(is_gestionnaire()):?>
                     <a href="modif-vehicule.php?id=<?=$vehicule['id'] ?>">Modifier</a> - 
                     <span class="supprVehicule" data-id="<?= $vehicule['id'] ?>">Supprimer</span> - 
+                    <?php endif ?>
                     <a href="detail-vehicule.php?id=<?=$vehicule['id'] ?>">Détail</a>
                 </td>
             </tr>

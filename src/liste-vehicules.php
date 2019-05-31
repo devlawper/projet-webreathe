@@ -1,8 +1,8 @@
 <?php
 require 'config/functions.php';
 
-// Si l'utilisateur n'est pas 'gestionnaire' on le renvoie au tableau de bord
-if(!is_gestionnaire()){
+// Si l'utilisateur n'est pas 'gestionnaire' ou 'technicien' on le renvoie au tableau de bord
+if(!is_gestionnaire() && !is_technicien()){
 	header('location:index.php');
 }
 
