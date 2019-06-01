@@ -113,7 +113,7 @@ if(!is_gestionnaire() && !is_technicien()){
                 <td><?= $prevu['modele'] ?></td>                
                 <td>
                     <?php if(is_technicien()):?>
-                    <a class="btn" href="modif-operation.php?id=<?=$operation['id'] ?>">Modifier</a> - 
+                    <a class="btn" href="modif-operation.php?id=<?=$prevu['id'] ?>">Modifier</a> - 
                     <?php endif; ?>
                     <a class="btn" href="detail-operation.php?id=<?=$prevu['id'] ?>">Détail</a>
                 </td>

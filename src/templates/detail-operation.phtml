@@ -47,10 +47,13 @@ if(!is_gestionnaire() && !is_technicien()){
         <?php endif;?>
     </table>
 </section>
-<section class="photos">
+<section class="photos container row-desk">
     <?php foreach ($photos as $photo):?>
-    <h2><?= $photo['titre'] ?></h2>
-    <img src="img/<?= $photo['photo'] ?>" alt="<?= $photo['titre'] ?>">
+    <article class="col-desk-4">
+        <h2>Photos :</h2>
+        <p class="underline"><?= $photo['titre'] ?></p>
+        <img src="img/<?= $photo['photo'] ?>" alt="<?= $photo['titre'] ?>">
+    </article>
     <?php endforeach; ?>
 </section>
 <section class="notes container">
