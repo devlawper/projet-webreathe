@@ -124,22 +124,24 @@ $('.canvasjs-chart-toolbar').text('');
 
  <!-- Sinon on affiche la page de connexion -->   
 <?php else: ?>
-    <section class="container">
-        <h2>Système de gestion de maintenance</h2>
-        <?php if(isset($message)){echo $message; } ?>
-        <form class='formulaire' action="index.php" method="post">
-            <fieldset>
-                <legend>Connexion</legend>
-                <p class="row-desk">
-                    <label class="col-desk-2" for="login">Login</label>
-                    <input class="col-desk-10" id='login' type="text" name='login' placeholder="Votre email">
-                </p>
-                <p class="row-desk">
-                    <label class="col-desk-2" for="mdp">Mot de passe</label>
-                    <input class="col-desk-10" id='mdp' type="password" name="mdp" placeholder="Votre mot de passe">
-                </p>
-                <button>Se connecter</button>
-            </fieldset>            
-        </form>
-    </section>
+<h1>Système de gestion de maintenance</h1>
+<section class="container">
+    <?php if(isset($message)){echo $message; } ?>
+    <form class='formulaire' action="index.php" method="post">
+        <fieldset class="connexionForm">
+            <legend>Connexion</legend>
+            <p class="row-desk">
+                <label class="col-desk-4" for="login">Login :</label>
+                <input class="col-desk-8" id='login' type="text" name='login' placeholder="Votre email">
+            </p>
+            <p class="row-desk">
+                <label class="col-desk-4" for="mdp">Mot de passe :</label>
+                <input class="col-desk-8" id='mdp' type="password" name="mdp" placeholder="Votre mot de passe">
+            </p>
+            <p class="align-center">                
+                <button class="btn">Se connecter</button>
+            </p>
+        </fieldset>            
+    </form>
+</section>
 <?php endif; ?>
