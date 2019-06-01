@@ -10,13 +10,13 @@ if(!is_administrateur()){
 <?php if ($_GET['role']=='gestionnaire'):?>
 <h1>Liste des gestionnaires</h1>
 <section class="container">
-    <a href="ajout-user.php?role=gestionnaire">Ajouter un gestionnaire</a>
+    <a class="btn ib" href="ajout-user.php?role=gestionnaire">Ajouter un gestionnaire</a>
     <?php elseif ($_GET['role']=='technicien'):?>
     <h1>Liste des techniciens</h1>
     <section class="container">
         <a href="ajout-user.php?role=technicien">Ajouter un technicien</a>
         <?php endif;?>
-        <table class="table">
+        <table class="table tableList">
             <thead>
                 <tr>
                     <th>Id</th>
@@ -35,8 +35,8 @@ if(!is_administrateur()){
                     <td><?= $gestionnaire['prenom'] ?></td>
                     <td><?= $gestionnaire['email'] ?></td>
                     <td>
-                        <a href="modif-user.php?id=<?=$gestionnaire['id'] ?>&amp;role=gestionnaire">Modifier</a> -
-                        <span class="supprUser" data-id="<?= $gestionnaire['id'] ?>">Supprimer</span>
+                        <a class="btn" href="modif-user.php?id=<?=$gestionnaire['id'] ?>&amp;role=gestionnaire">Modifier</a> -
+                        <span class="supprUser btn" data-id="<?= $gestionnaire['id'] ?>">Supprimer</span>
                     </td>
                 </tr>
                 <?php endforeach; ?>
