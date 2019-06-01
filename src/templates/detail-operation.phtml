@@ -45,3 +45,25 @@ if(!is_technicien()){
         </tr>
     </table>
 </section>
+<section class="photos">
+    <?php foreach ($photos as $photo):?>
+    <h2><?= $photo['titre'] ?></h2>
+    <img src="img/<?= $photo['photo'] ?>" alt="<?= $photo['titre'] ?>">
+    <?php endforeach; ?>
+</section>
+<section class="notes">
+    <h2>Note(s) :</h2>    
+    <?php foreach ($notes as $note):?>
+    <p>
+        De : <?= $note['prenom'] ?> <?= $note['nom'] ?><br>
+        <?= $note['note'] ?></p>
+    <?php endforeach; ?>
+</section>
+<section class="pieces">    
+    <h2>Liste de pièce(s) :</h2>
+    <ul>
+        <?php foreach ($pieces as $piece):?>
+        <li><?= $piece['nom'] ?> - <?= $piece['quantite'] ?></li>
+        <?php endforeach; ?>
+    </ul>    
+</section>

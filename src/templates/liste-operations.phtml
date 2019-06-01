@@ -8,8 +8,11 @@ if(!is_technicien()){
 
 <!-- Sinon on affiche le tableau des opérations -->
 <section class="container">
-    <h1>Liste des opérations</h1>
+    <h1>Liste des opérations en cours</h1>
     <a href="ajout-operation.php">Ajouter une opération</a>
+    <?php if(empty($operations)): ?>
+    <p>Pas d'opérations en cours</p>
+    <?php else:?>
     <table class="table">
         <thead>
             <tr>
@@ -33,4 +36,65 @@ if(!is_technicien()){
             <?php endforeach; ?>
         </tbody>
     </table>
+    <?php endif;?>
+</section>
+<section class="container">
+    <h1>Liste des opérations à venir</h1>
+    <a href="ajout-operation.php">Ajouter une opération</a>    
+    <?php if(empty($prevus)): ?>
+    <p>Pas d'opérations prévues</p>
+    <?php else:?>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Sujet</th>
+                <th>Marque</th>
+                <th>Modèle</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach($prevus as $prevu):?>
+            <tr class="<?= $prevu['id'] ?>">
+                <td><?= $prevu['sujet'] ?></td>
+                <td><?= $prevu['marque'] ?></td>
+                <td><?= $prevu['modele'] ?></td>                
+                <td>
+                    <a href="modif-operation.php?id=<?=$prevu['id'] ?>">Modifier</a> - 
+                    <a href="detail-operation.php?id=<?=$prevu['id'] ?>">Détail</a>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+    <?php endif; ?>
+</section>
+<section class="container">
+    <h1>Liste des opérations passées</h1>    
+    <?php if(empty($historiques)): ?>
+    <p>Pas d'opérations passées</p>
+    <?php else:?>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Sujet</th>
+                <th>Marque</th>
+                <th>Modèle</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach($historiques as $historique):?>
+            <tr class="<?= $historique['id'] ?>">
+                <td><?= $historique['sujet'] ?></td>
+                <td><?= $historique['marque'] ?></td>
+                <td><?= $historique['modele'] ?></td>                
+                <td>
+                    <a href="detail-operation.php?id=<?=$historique['id'] ?>">Détail</a>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+    <?php endif; ?>
 </section>
