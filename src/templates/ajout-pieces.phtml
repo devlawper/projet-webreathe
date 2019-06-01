@@ -1,0 +1,26 @@
+<?php
+// Si l'utilisateur n'est pas 'technicien' on le renvoie au tableau de bord
+if(!is_technicien()){
+	header('location:index.php');
+}
+?>
+
+<section class="container">
+    <form class="formulaire" action="ajout-pieces.php" method="post">
+        <fieldset>
+                <legend>Ajout de pièces</legend>
+
+<!-- Formulaire d'ajout d'opération -->
+            <p class="row-desk">
+                <label class="col-desk-2" for="nom">Nom :</label>
+                <input class="col-desk-10" id="nom" name="nom" type="text" value="" required>
+            </p>
+            <p class="row-desk">
+                <label class="col-desk-2" for="quantite">Quantité :</label>
+                <input class="col-desk-10" id="quantite" name="quantite" type="number" value="" required>
+            </p>            
+            <button class="btn" type="submit">Ajouter</button>
+            <button class="btn" type="button"><a href="ajout-photos.php">Passer cette étape</a></button>
+        </fieldset>        
+    </form>    
+</section>

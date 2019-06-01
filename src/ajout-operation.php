@@ -38,7 +38,7 @@ if (isset($_POST['date_debut'])) {
         VALUES(?,?,?,?,?)");
     $query->execute(array($date_debut,$date_fin,$sujet,$description,$vehicule));
     
-    header('location:liste-operations.php');
+    header('location:ajout-pieces.php');
 }
 
 include 'layout.phtml';

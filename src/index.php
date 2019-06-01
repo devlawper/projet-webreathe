@@ -25,13 +25,13 @@ if(isset($_POST['login'])){
             $nom=$user['prenom'].' '.$user['nom'];
             $_SESSION['user']=$nom;
             if($user['role'] == 'administrateur'){
-                $_SESSION['administrateur']=$nom;
+                $_SESSION['administrateur']=$user['email'];
             }
             if($user['role'] == 'gestionnaire'){
-                $_SESSION['gestionnaire']=$nom;
+                $_SESSION['gestionnaire']=$user['email'];
             }
             if($user['role'] == 'technicien'){
-                $_SESSION['technicien']=$nom;
+                $_SESSION['technicien']=$user['email'];
             }
         }        
         else{
