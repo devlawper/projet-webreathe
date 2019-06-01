@@ -44,7 +44,7 @@ if (isset($_POST['date_debut'])) {
         WHERE id=?");
     $query->execute(array($date_debut,$date_fin,$sujet,$descritpion,$_GET['id']));
 
-    header('location:liste-operations.php');    
+    header('location:ajout-pieces.php');    
 }
 
 include 'layout.phtml';

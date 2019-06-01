@@ -6,9 +6,9 @@ if(!is_technicien()){
 ?>
 
 <!-- Sinon on affiche le détail du véhicule -->
+<h1>Détail de l'opération</h1>
 <section class="container">
-    <h1>Détail de l'opération</h1>
-    <table class="table">
+    <table class="table tableList">
         <tr>
             <th>Id</th>
             <td><?= $operation['id'] ?></td>
@@ -40,7 +40,7 @@ if(!is_technicien()){
         <tr>
             <th>Actions</th>
             <td>                
-                <a href="modif-operation.php?id=<?=$operation['id'] ?>">Modifier</a>               
+                <a class="btn" href="modif-operation.php?id=<?=$operation['id'] ?>">Modifier</a>               
             </td>
         </tr>
     </table>
@@ -51,19 +51,20 @@ if(!is_technicien()){
     <img src="img/<?= $photo['photo'] ?>" alt="<?= $photo['titre'] ?>">
     <?php endforeach; ?>
 </section>
-<section class="notes">
+<section class="notes container">
     <h2>Note(s) :</h2>    
     <?php foreach ($notes as $note):?>
     <p>
-        De : <?= $note['prenom'] ?> <?= $note['nom'] ?><br>
-        <?= $note['note'] ?></p>
+        <span class="underline">De : <?= $note['prenom'] ?> <?= $note['nom'] ?></span><br>
+        <?= $note['note'] ?>
+    </p>
     <?php endforeach; ?>
 </section>
-<section class="pieces">    
+<section class="pieces container">    
     <h2>Liste de pièce(s) :</h2>
     <ul>
         <?php foreach ($pieces as $piece):?>
-        <li><?= $piece['nom'] ?> - <?= $piece['quantite'] ?></li>
+        <li><?= $piece['nom'] ?> - Quantité : <?= $piece['quantite'] ?></li>
         <?php endforeach; ?>
     </ul>    
 </section>

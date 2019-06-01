@@ -65,6 +65,9 @@ h2 {
   color: #5F98F9;
   margin-bottom: 1rem; }
 
+p {
+  line-height: 1.3rem; }
+
 .container {
   width: 90%;
   margin-left: auto;
@@ -93,6 +96,9 @@ li {
 
 .required {
   color: #CC0000; }
+
+.underline {
+  text-decoration: underline; }
 
 button {
   cursor: pointer; }
