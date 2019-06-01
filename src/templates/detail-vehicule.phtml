@@ -61,7 +61,9 @@ if(!is_gestionnaire() && !is_technicien()){
 
 <h1>Liste des opérations en cours</h1>
 <section class="container">
+    <?php if(is_technicien()):?>
     <a class="btn ib" href="ajout-operation.php">Ajouter une opération</a>
+    <?php endif; ?>
     <?php if(empty($operation)): ?>
     <p>Pas d'opérations en cours</p>
     <?php else:?>
@@ -80,7 +82,9 @@ if(!is_gestionnaire() && !is_technicien()){
                 <td><?= $operation['marque'] ?></td>
                 <td><?= $operation['modele'] ?></td>                
                 <td>
+                    <?php if(is_technicien()):?>
                     <a class="btn" href="modif-operation.php?id=<?=$operation['id'] ?>">Modifier</a> - 
+                    <?php endif; ?>
                     <a class="btn" href="detail-operation.php?id=<?=$operation['id'] ?>">Détail</a>
                 </td>
             </tr>
@@ -89,8 +93,7 @@ if(!is_gestionnaire() && !is_technicien()){
     <?php endif;?>
 </section>
 <h1>Liste des opérations à venir</h1>
-<section class="container">
-    <a class='btn ib' href="ajout-operation.php">Ajouter une opération</a>    
+<section class="container">   
     <?php if(empty($prevu)): ?>
     <p>Pas d'opérations prévues</p>
     <?php else:?>
@@ -109,7 +112,9 @@ if(!is_gestionnaire() && !is_technicien()){
                 <td><?= $prevu['marque'] ?></td>
                 <td><?= $prevu['modele'] ?></td>                
                 <td>
-                    <a class="btn" href="modif-operation.php?id=<?=$prevu['id'] ?>">Modifier</a> - 
+                    <?php if(is_technicien()):?>
+                    <a class="btn" href="modif-operation.php?id=<?=$operation['id'] ?>">Modifier</a> - 
+                    <?php endif; ?>
                     <a class="btn" href="detail-operation.php?id=<?=$prevu['id'] ?>">Détail</a>
                 </td>
             </tr>

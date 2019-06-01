@@ -10,7 +10,7 @@ if(!is_gestionnaire() && !is_technicien()){
 <h1>Liste des véhicules</h1>
 <section class="container">
     <?php if(is_gestionnaire()){
-        echo ('<a href="ajout-vehicule.php">Ajouter un véhicule</a>');
+        echo ('<a class="btn ib" href="ajout-vehicule.php">Ajouter un véhicule</a>');
     }
     ?>
     <table class="table tableList">
@@ -36,12 +36,12 @@ if(!is_gestionnaire() && !is_technicien()){
                 </td>
                 <td>
                     <?php if(is_gestionnaire()):?>
-                    <a class="btn" href="modif-vehicule.php?id=<?=$vehicule['id'] ?>">Modifier - </a>
-                    <span class="supprVehicule btn" data-id="<?= $vehicule['id'] ?>">Supprimer - </span>
+                    <a class="btn" href="modif-vehicule.php?id=<?=$vehicule['id'] ?>">Modifier</a> - 
+                    <span class="supprVehicule btn" data-id="<?= $vehicule['id'] ?>">Supprimer</span> - 
                     <?php endif ?>
                     <a class="btn" href="detail-vehicule.php?id=<?=$vehicule['id'] ?>">Détail</a>
                     <?php if(is_technicien()):?>
-                    <span class="ajoutPb btn" data-id="<?= $vehicule['id'] ?>"> - Signaler un problème</span>
+                    - <span class="ajoutPb btn" data-id="<?= $vehicule['id'] ?>">Signaler un problème</span>
                     <?php endif ?>
                 </td>
             </tr>
