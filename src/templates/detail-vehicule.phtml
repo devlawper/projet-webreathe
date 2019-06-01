@@ -6,9 +6,9 @@ if(!is_gestionnaire() && !is_technicien()){
 ?>
 
 <!-- Sinon on affiche le détail du véhicule -->
+<h1>Détail du véhicule</h1>
 <section class="container">
-    <h1>Détail du véhicule</h1>
-    <table class="table">
+    <table class="table tableList">
         <tr>
             <th>Id</th>
             <td><?= $vehicule['id'] ?></td>
@@ -43,8 +43,8 @@ if(!is_gestionnaire() && !is_technicien()){
         <tr>
             <th>Actions</th>            
             <td>                
-                <a href="modif-vehicule.php?id=<?=$vehicule['id'] ?>">Modifier</a> - 
-                <span class="supprVehicule" data-id="<?= $vehicule['id'] ?>">Supprimer</span>                
+                <a class="btn" href="modif-vehicule.php?id=<?=$vehicule['id'] ?>">Modifier</a> - 
+                <span class="supprVehicule btn" data-id="<?= $vehicule['id'] ?>">Supprimer</span>                
             </td>
         </tr>
         <?php endif ?>
@@ -52,15 +52,16 @@ if(!is_gestionnaire() && !is_technicien()){
         <tr class="actionPb">
             <th>Actions</th> 
             <td>
-                <span class="pbResolu" data-id="<?= $vehicule['id'] ?>">Problème résolu ?</span>
+                <span class="pbResolu btn" data-id="<?= $vehicule['id'] ?>">Problème résolu ?</span>
             </td>
         </tr>
         <?php endif ?>        
     </table>
 </section>
+
+<h1>Liste des opérations en cours</h1>
 <section class="container">
-    <h1>Liste des opérations en cours</h1>
-    <a href="ajout-operation.php">Ajouter une opération</a>
+    <a class="btn ib" href="ajout-operation.php">Ajouter une opération</a>
     <?php if(empty($operation)): ?>
     <p>Pas d'opérations en cours</p>
     <?php else:?>
@@ -79,21 +80,21 @@ if(!is_gestionnaire() && !is_technicien()){
                 <td><?= $operation['marque'] ?></td>
                 <td><?= $operation['modele'] ?></td>                
                 <td>
-                    <a href="modif-operation.php?id=<?=$operation['id'] ?>">Modifier</a> - 
-                    <a href="detail-operation.php?id=<?=$operation['id'] ?>">Détail</a>
+                    <a class="btn" href="modif-operation.php?id=<?=$operation['id'] ?>">Modifier</a> - 
+                    <a class="btn" href="detail-operation.php?id=<?=$operation['id'] ?>">Détail</a>
                 </td>
             </tr>
         </tbody>
     </table>
     <?php endif;?>
 </section>
+<h1>Liste des opérations à venir</h1>
 <section class="container">
-    <h1>Liste des opérations à venir</h1>
-    <a href="ajout-operation.php">Ajouter une opération</a>    
+    <a class='btn ib' href="ajout-operation.php">Ajouter une opération</a>    
     <?php if(empty($prevu)): ?>
     <p>Pas d'opérations prévues</p>
     <?php else:?>
-    <table class="table">
+    <table class="table tableList">
         <thead>
             <tr>
                 <th>Sujet</th>
@@ -108,20 +109,21 @@ if(!is_gestionnaire() && !is_technicien()){
                 <td><?= $prevu['marque'] ?></td>
                 <td><?= $prevu['modele'] ?></td>                
                 <td>
-                    <a href="modif-operation.php?id=<?=$prevu['id'] ?>">Modifier</a> - 
-                    <a href="detail-operation.php?id=<?=$prevu['id'] ?>">Détail</a>
+                    <a class="btn" href="modif-operation.php?id=<?=$prevu['id'] ?>">Modifier</a> - 
+                    <a class="btn" href="detail-operation.php?id=<?=$prevu['id'] ?>">Détail</a>
                 </td>
             </tr>
         </tbody>
     </table>
     <?php endif; ?>
 </section>
-<section class="container">
-    <h1>Liste des opérations passées</h1>    
+
+<h1>Liste des opérations passées</h1>
+<section class="container">    
     <?php if(empty($historique)): ?>
     <p>Pas d'opérations passées</p>
     <?php else:?>
-    <table class="table">
+    <table class="table tableList">
         <thead>
             <tr>
                 <th>Sujet</th>
@@ -136,7 +138,7 @@ if(!is_gestionnaire() && !is_technicien()){
                 <td><?= $historique['marque'] ?></td>
                 <td><?= $historique['modele'] ?></td>                
                 <td>
-                    <a href="detail-operation.php?id=<?=$historique['id'] ?>">Détail</a>
+                    <a class="btn" href="detail-operation.php?id=<?=$historique['id'] ?>">Détail</a>
                 </td>
             </tr>
         </tbody>
