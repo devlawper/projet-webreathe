@@ -100,7 +100,7 @@ button {
 .btn {
   cursor: pointer;
   text-align: center;
-  padding: 1% 3%;
+  padding: 0.5% 2%;
   border-radius: 5px;
   color: #FFF;
   border: 1px solid #5F98F9;
@@ -110,6 +110,10 @@ button {
 .btn:hover {
   color: #5F98F9;
   background: #FFF; }
+
+.ib {
+  display: inline-block;
+  margin-bottom: 1rem; }
 
 /* **************************** */
 /* ******** STYLE FLEX ******** */
@@ -382,7 +386,7 @@ table tbody tr:nth-child(odd) {
   table tbody tr:nth-child(odd) .btn {
     cursor: pointer;
     text-align: center;
-    padding: 1% 3%;
+    padding: 0.5% 2%;
     border-radius: 5px;
     color: #5F98F9;
     border: 1px solid #FFF;
@@ -393,7 +397,7 @@ table tbody tr:nth-child(odd) {
     background: #5F98F9; }
 
 th, td {
-  padding: 1% 2%;
+  padding: 0.5rem 1rem;
   border: 1px solid #000; }
 
 .canvasjs-chart-canvas {
@@ -405,16 +409,17 @@ th, td {
   border-radius: 4px;
   padding: 1% 2%; }
 .formulaire legend {
-  font-weight: bold; }
+  font-weight: bold;
+  color: #5F98F9; }
 
 /* **************************** */
 /* ******* STYLE FOOTER ******* */
 /* **************************** */
-.top {
-  text-align: right;
-  position: fixed;
-  left: 91%;
-  width: 5%;
-  top: 91%; }
+footer {
+  background-color: #5F98F9;
+  color: #FFF;
+  padding: 2%; }
+  footer a {
+    color: #FFF; }
 
 /*# sourceMappingURL=style.css.map */

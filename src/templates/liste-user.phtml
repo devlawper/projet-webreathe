@@ -6,52 +6,54 @@ if(!is_administrateur()){
 ?>
 
 <!-- Sinon on affiche le tableau des gestionnaire ou des technicien en fonction du lien cliqué -->
+
+<?php if ($_GET['role']=='gestionnaire'):?>
+<h1>Liste des gestionnaires</h1>
 <section class="container">
-    <?php if ($_GET['role']=='gestionnaire'):?>
-    <h1>Liste des gestionnaires</h1>
     <a href="ajout-user.php?role=gestionnaire">Ajouter un gestionnaire</a>
-    <?php elseif ($_GET['role']=='technicien'):?> 
+    <?php elseif ($_GET['role']=='technicien'):?>
     <h1>Liste des techniciens</h1>
-    <a href="ajout-user.php?role=technicien">Ajouter un technicien</a>
-    <?php endif;?>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Prénom</th>
-                <th>Email</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php if ($_GET['role']=='gestionnaire'):?>
-            <?php foreach($gestionnaires as $gestionnaire):?>
-            <tr class="<?= $gestionnaire['id'] ?>">
-                <td><?= $gestionnaire['id'] ?></td>
-                <td><?= $gestionnaire['nom'] ?></td>
-                <td><?= $gestionnaire['prenom'] ?></td>
-                <td><?= $gestionnaire['email'] ?></td>
-                <td>
-                    <a href="modif-user.php?id=<?=$gestionnaire['id'] ?>&amp;role=gestionnaire">Modifier</a> - 
-                    <span class="supprUser" data-id="<?= $gestionnaire['id'] ?>">Supprimer</span>
-                </td>
-            </tr>
-            <?php endforeach; ?>
-            <?php elseif ($_GET['role']=='technicien'):?> 
-            <?php foreach($techniciens as $technicien):?>
-            <tr class="<?= $technicien['id'] ?>">
-                <td><?= $technicien['id'] ?></td>
-                <td><?= $technicien['nom'] ?></td>
-                <td><?= $technicien['prenom'] ?></td>
-                <td><?= $technicien['email'] ?></td>
-                <td>
-                    <a href="modif-user.php?id=<?=$technicien['id'] ?>&amp;role=technicien">Modifier</a> - 
-                    <span class="supprUser" data-id="<?= $technicien['id'] ?>">Supprimer</span>
-                </td>
-            </tr>
-            <?php endforeach; ?>
-            <?php endif;?>
+    <section class="container">
+        <a href="ajout-user.php?role=technicien">Ajouter un technicien</a>
+        <?php endif;?>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php if ($_GET['role']=='gestionnaire'):?>
+                <?php foreach($gestionnaires as $gestionnaire):?>
+                <tr class="<?= $gestionnaire['id'] ?>">
+                    <td><?= $gestionnaire['id'] ?></td>
+                    <td><?= $gestionnaire['nom'] ?></td>
+                    <td><?= $gestionnaire['prenom'] ?></td>
+                    <td><?= $gestionnaire['email'] ?></td>
+                    <td>
+                        <a href="modif-user.php?id=<?=$gestionnaire['id'] ?>&amp;role=gestionnaire">Modifier</a> -
+                        <span class="supprUser" data-id="<?= $gestionnaire['id'] ?>">Supprimer</span>
+                    </td>
+                </tr>
+                <?php endforeach; ?>
+                <?php elseif ($_GET['role']=='technicien'):?>
+                <?php foreach($techniciens as $technicien):?>
+                <tr class="<?= $technicien['id'] ?>">
+                    <td><?= $technicien['id'] ?></td>
+                    <td><?= $technicien['nom'] ?></td>
+                    <td><?= $technicien['prenom'] ?></td>
+                    <td><?= $technicien['email'] ?></td>
+                    <td>
+                        <a href="modif-user.php?id=<?=$technicien['id'] ?>&amp;role=technicien">Modifier</a> -
+                        <span class="supprUser" data-id="<?= $technicien['id'] ?>">Supprimer</span>
+                    </td>
+                </tr>
+                <?php endforeach; ?>
+                <?php endif;?>
             </tbody>
         </table>
-</section>
+    </section>
