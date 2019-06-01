@@ -1,10 +1,88 @@
 <!-- Affichage du tableau de bord si l'utilisateur est connecté -->
 <?php if(is_connect()): ?>
-    <section class="container">
-        <h1>Tableau de bord</h1>
-        <p>Bienvenue <?= $_SESSION['user']?> </p>
-        <p><a href="php/deconnect.php">Déconnexion</a></p>
-    </section>
+<section class="container">
+    <h1>Tableau de bord</h1>
+    <p>Bienvenue <?= $_SESSION['user']?> </p>
+    <p><a href="php/deconnect.php">Déconnexion</a></p>
+</section>
+
+<section class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Marque</th>
+                <th>Modèle</th>
+                <th>Problème</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach($vehicules as $vehicule):?>
+            <tr>
+                <td><?= $vehicule['marque'] ?></td>
+                <td><?= $vehicule['modele'] ?></td>
+                <td>
+                    <?php if($vehicule['probleme']==''):?>
+                    Pas de problème
+                    <?php else: ?>
+                    <?= $vehicule['probleme'] ?>
+                    <?php endif ?>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</section>
+
+<section class="container">
+    <h1>Liste des opérations en cours</h1>
+    <?php if(empty($operations)): ?>
+    <p>Pas d'opérations en cours</p>
+    <?php else:?>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Sujet</th>
+                <th>Marque</th>
+                <th>Modèle</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach($operations as $operation):?>
+            <tr class="<?= $operation['id'] ?>">
+                <td><?= $operation['sujet'] ?></td>
+                <td><?= $operation['marque'] ?></td>
+                <td><?= $operation['modele'] ?></td>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+    <?php endif;?>
+</section>
+<section class="container">
+    <h1>Liste des opérations à venir</h1> 
+    <?php if(empty($prevus)): ?>
+    <p>Pas d'opérations prévues</p>
+    <?php else:?>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Sujet</th>
+                <th>Marque</th>
+                <th>Modèle</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach($prevus as $prevu):?>
+            <tr class="<?= $prevu['id'] ?>">
+                <td><?= $prevu['sujet'] ?></td>
+                <td><?= $prevu['marque'] ?></td>
+                <td><?= $prevu['modele'] ?></td>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+    <?php endif; ?>
+</section>
 
  <!-- Sinon on affiche la page de connexion -->   
 <?php else: ?>
@@ -27,3 +105,33 @@
         </form>
     </section>
 <?php endif; ?>
+
+
+<script>
+window.onload = function () {
+ 
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	exportEnabled: true,
+	title:{
+		text: "Intervention sur les 30 derniers jours"
+	},
+	subtitles: [{
+		text: "En nombre d'intervention"
+	}],
+	data: [{
+		type: "pie",
+		showInLegend: "true",
+		legendText: "{label}",
+		indexLabelFontSize: 16,
+		indexLabel: "{label} - #percent%",
+		yValueFormatString: "",
+		dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
+	}]
+});
+chart.render();
+$('.canvasjs-chart-credit').text('');
+$('.canvasjs-chart-toolbar').text('');
+}
+</script>
+<div id="chartContainer"></div>

@@ -9,7 +9,10 @@ if(!is_gestionnaire() && !is_technicien()){
 <!-- Sinon on affiche le tableau des véhicules -->
 <section class="container">
     <h1>Liste des véhicules</h1>
-    <a href="ajout-vehicule.php">Ajouter un véhicule</a>
+    <?php if(is_gestionnaire()){
+        echo ('<a href="ajout-vehicule.php">Ajouter un véhicule</a>');
+    }
+    ?>    
     <table class="table">
         <thead>
             <tr>

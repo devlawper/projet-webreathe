@@ -11,6 +11,8 @@ $bdd=connectBdd();
 $title='Base - Index';
 $template='liste-operations';
 
+
+// Selection des opérations en cours
 $query=$bdd->prepare(
     'SELECT gm_maintenance.id,date_debut,date_fin,sujet,marque,modele
     FROM gm_maintenance
@@ -19,8 +21,8 @@ $query=$bdd->prepare(
     WHERE date_fin>=NOW() && date_debut<=NOW()');
 $query->execute();
 $operations=$query->fetchAll();
-var_dump($operations);
 
+// Selection des opérations passées
 $query=$bdd->prepare(
     'SELECT gm_maintenance.id,date_fin,sujet,marque,modele
     FROM gm_maintenance
@@ -30,6 +32,7 @@ $query=$bdd->prepare(
 $query->execute();
 $historiques=$query->fetchAll();
 
+// Selection des opérations à venir
 $query=$bdd->prepare(
     'SELECT gm_maintenance.id,date_fin,sujet,marque,modele
     FROM gm_maintenance
