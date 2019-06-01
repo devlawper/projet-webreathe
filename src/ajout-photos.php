@@ -19,9 +19,9 @@ $query->execute();
 $maintenance_id=$query->fetch();
 
 // On récupère les valeurs des champs après soumission du formulaire
-if (isset($_POST['photo'])) {    
-	$photo = htmlspecialchars($_FILES['image']['name']);
-	$image = move_uploaded_file($_FILES['image']['tmp_name'], "img/".basename($photo_chargee));
+if (isset($_FILES['photo'])) {    
+	$photo = htmlspecialchars($_FILES['photo']['name']);
+	$image = move_uploaded_file($_FILES['photo']['tmp_name'], "img/".basename($photo));
     $titre=htmlspecialchars($_POST['titre']);
 
     $query=$bdd->prepare(
