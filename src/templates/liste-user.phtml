@@ -14,7 +14,7 @@ if(!is_administrateur()){
     <?php elseif ($_GET['role']=='technicien'):?>
     <h1>Liste des techniciens</h1>
     <section class="container">
-        <a href="ajout-user.php?role=technicien">Ajouter un technicien</a>
+        <a class="btn ib" href="ajout-user.php?role=technicien">Ajouter un technicien</a>
         <?php endif;?>
         <table class="table tableList">
             <thead>
@@ -48,8 +48,8 @@ if(!is_administrateur()){
                     <td><?= $technicien['prenom'] ?></td>
                     <td><?= $technicien['email'] ?></td>
                     <td>
-                        <a href="modif-user.php?id=<?=$technicien['id'] ?>&amp;role=technicien">Modifier</a> -
-                        <span class="supprUser" data-id="<?= $technicien['id'] ?>">Supprimer</span>
+                        <a class="btn" href="modif-user.php?id=<?=$technicien['id'] ?>&amp;role=technicien">Modifier</a> -
+                        <span class="supprUser btn" data-id="<?= $technicien['id'] ?>">Supprimer</span>
                     </td>
                 </tr>
                 <?php endforeach; ?>
