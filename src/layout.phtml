@@ -6,6 +6,7 @@
     <title><?= $title ?></title>
     <meta name="description" content="">
 
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
@@ -14,8 +15,7 @@
     <?php if(isset($_SESSION['user'])): ?>
     <header>
       <nav class="container-fluid fixed">
-        <button class="btnHamburger"><i class="fas fa-2x fa-bars"></i></button>
-        <ul id="mainmenu" class="row-desk hide">          
+        <ul id="mainmenu" class="row-desk">          
           <?php if(is_administrateur()): ?>
           <li class="col-desk-4 align-center"><a class="active" href="index.php">Tableau de bord</a></li>
           <li class="col-desk-4 align-center"><a class="" href="liste-user.php?role=gestionnaire">Liste des gestionnaires</a></li>

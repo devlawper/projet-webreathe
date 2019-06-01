@@ -26,7 +26,7 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
-	line-height: 1;
+  line-height: 1;
 }
 
 blockquote, q {
@@ -50,14 +50,27 @@ img{
 body {
   font-family: 'Montserrat', sans-serif;
   font-size: 1rem;
-  margin: 0;
+  margin: 0;  
+  background-color: #FAFAFA;
 }
 main {
   padding: 2rem 0;
 }
+h1 {
+  text-align: center;
+  color: #5F98F9;
+  border-bottom: 1px dotted #5F98F9;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+}
+h2 {  
+  color: #5F98F9;
+  margin-bottom: 1rem;
+}
 .container {
   width: 90%;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 .container-fluid {
   width: 100%;
@@ -271,50 +284,55 @@ $basis12: 98%;
 /* ******* STYLE HEADER ******* */
 /* **************************** */
 
-@media all and (min-width: 1024px) {
-  .btnHamburger {
-    display: none;
-  }
-  #mainmenu {
-    display: flex;
-  }
-}
 header nav.fixed {
   position:fixed;
   top:0;
   left:0;
   right:0;
-  background-color: #FFF;
+  background-color: #5F98F9;
   border-bottom:1px solid #000;
+  padding: 1% 0%;
   z-index:20;
-}
-header nav .btnHamburger {
-  border:1px solid #000;
-  background-color: #FFF;
-  padding:10px 15px;
-  border-radius:6px;
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  a {
+    font-size: 1.2rem;
+    color: white;
+  }
 }
 
 /* **************************** */
 /* ******** STYLE MAIN ******** */
 /* **************************** */
-
+section {
+  margin-bottom: 2rem;
+}
+article {
+  margin-bottom: 1rem;
+}
 table.table {
+  width: 80%;
+  background-color: #FFF;
   border-collapse:collapse;
   font-size:0.9em;
   text-align: left;
   margin-bottom: 4em;
 }
 table tbody tr:nth-child(odd) {
- background-color:#FFE6BE;
+ background-color:#5F98F9;
+ color: #FFF;
 }
 
 th, td {
   padding:4px 8px;
-  border:1px solid #DD8B0C;
+  border:1px solid #000;
 }
-th {
- color:#DD8B0C;
+.canvasjs-chart-canvas {
+  width: 447px!important;
+  height: 300px!important;
 }
 
 .formulaire {
