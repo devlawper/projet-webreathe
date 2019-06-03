@@ -1,9 +1,11 @@
 # projet-webreathe
 Développement d'un site web de gestion de maintenance des véhicules d'un réseau de transport
 
+La base de donnée est à la source du projet dans le fichier gestion_maintenance.sql
+
 3 types d'accès:
-    - Administrateur (1 seul : login : contact@devlawper.com // mdp : webreathe)
-    - Gestionnaire (Login : adresse mail // mdp : premiere lettre du prénom suivi du nom ex : nfrero)
+    - Administrateur (1 seul : login : contact@devlawper.com | mdp : webreathe)
+    - Gestionnaire (Login : adresse mail | mdp : premiere lettre du prénom suivi du nom ex : nfrero pour nicolasfrero@gmail.com)
     - Technicien (idem gestionnaire)
 Menu personnalisé pour chacun en fonction des droits et accès
 
@@ -25,8 +27,9 @@ Améliorations restantes :
 - Rendre le site responsive (10h00 mini si il faut tout reprendre, sinon prévoir à la conception)
 - Pouvoir ajouter plusieurs pièces, photos et notes en même temps sur une opération (3h00)
 - Avoir accès aux stats par mois sur le tableau de bord (2h00)
-- Gestion de l'affiche si très grande flotte de véhicules (ne pas afficher 100 véhicules sur une même page) (3h00)
+- Gestion de l'affichage si très grande flotte de véhicules (ne pas afficher 100 véhicules sur une même page) (3h00)
 - Pouvoir retrouver un véhicule, gestionnaire ou techniciens avec un champ de recherche (7h00)
+- Modifier une opération de maintenance (la fonctionnalité est prévu mais je me suis rendu compte que la requète concerne le dernier id inséré et non pas celui seléctionné) (1h00)
 - Faire évoluer le design (5h00)
 - Faire un test complet du site et apporter les corrections(7h00 si tout n'est pas à refaire :-) )
 
